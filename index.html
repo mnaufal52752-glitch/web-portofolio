@@ -508,10 +508,10 @@
             </div>
           </div>
 
-          <!-- SLOT PROJEK 2 (CYBER SECURITY) -->
+          <!-- SLOT PROJEK 2 (CYBER SECURITY) - CONTOH TERISI, baris ~511 -->
           <div class="project-card" data-category="cyber"
-               data-overview="Tuliskan analisis atau hasil pengujian keamanan projek ini: tool apa yang Anda gunakan, kerentanan apa yang Anda temukan (atau cegah), dan bagaimana mitigasinya dilakukan berstandar OWASP."
-               data-security="Audit kepatuhan OWASP Top 10; Pemindaian celah keamanan otomatis; Rekomendasi mitigasi &amp; server hardening">
+               data-overview="WebSec Scanner adalah tool Python untuk audit otomatis website lab: cek XSS, SQLi, missing security headers, dan exposed file sensitif. Diuji pada 5 website demo, menemukan 12 temuan (3 high, 5 medium), lalu saya buat laporan berisi langkah reproduksi dan cara patch berstandar OWASP."
+               data-security="Scan otomatis OWASP Top 10; Laporan + skor risiko tiap temuan; Rekomendasi patch &amp; server hardening">
             <div class="project-banner">
               <div class="banner-pattern"></div>
               <div class="project-icon-large">
@@ -520,13 +520,13 @@
               <span class="project-type-badge cyber">Cyber Security</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">[Judul Projek 2 Anda]</h3>
+              <h3 class="project-title">WebSec Scanner – Audit OWASP Otomatis</h3>
               <p class="project-desc">
-                Tuliskan deskripsi riset atau tool keamanan Anda di sini. Contoh: Vulnerability Scanner, Security Audit Report, atau Pentesting Lab.
+                Tool Python untuk memindai kerentanan web umum dan menghasilkan laporan siap tindak lanjut.
               </p>
               <div class="project-security-feature">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Fokus Keamanan: Audit OWASP Top 10 &amp; Pentesting</span>
+                <span>Fokus: Scan XSS, SQLi &amp; missing security headers</span>
               </div>
               <div class="project-tech-stack">
                 <span class="tech-chip">Python</span>
@@ -541,10 +541,10 @@
             </div>
           </div>
 
-          <!-- SLOT PROJEK 3 (FULLSTACK &amp; SECURITY) -->
+          <!-- SLOT PROJEK 3 (FULLSTACK & SECURITY) - CONTOH TERISI, baris ~544 -->
           <div class="project-card" data-category="web fullstack"
-               data-overview="Jelaskan sistem autentikasi, manajemen data pengguna, atau arsitektur API yang Anda rancang pada projek ini."
-               data-security="Enkripsi password menggunakan Argon2 / Bcrypt; Dukungan autentikasi 2FA / MFA; Pembatasan hak akses berbasis peran (RBAC)">
+               data-overview="AuthGate adalah portal login terenkripsi: register, login, lupa password, dan dashboard berbasis peran (admin/user). Token akses JWT umur pendek + refresh token rotation di httpOnly cookie. Password memakai Argon2id, login dilindungi rate-limit dan lockout 5x gagal, plus 2FA TOTP dengan backup code."
+               data-security="Hash password Argon2id + salt unik; 2FA TOTP + backup code; RBAC admin/user + session timeout">
             <div class="project-banner">
               <div class="banner-pattern"></div>
               <div class="project-icon-large">
@@ -553,13 +553,13 @@
               <span class="project-type-badge web">Fullstack &amp; Security</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">[Judul Projek 3 Anda]</h3>
+              <h3 class="project-title">AuthGate – Login Aman + 2FA</h3>
               <p class="project-desc">
-                Tuliskan deskripsi aplikasi fullstack Anda di sini. Contoh: Sistem autentikasi aman, portal login terenkripsi, atau dashboard admin.
+                Portal login terenkripsi dengan verifikasi 2 langkah dan manajemen peran pengguna.
               </p>
               <div class="project-security-feature">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Fitur Keamanan: Hashing Argon2id &amp; 2FA Support</span>
+                <span>Fitur: Argon2id, 2FA TOTP, RBAC + lockout</span>
               </div>
               <div class="project-tech-stack">
                 <span class="tech-chip">Node.js</span>
@@ -574,10 +574,10 @@
             </div>
           </div>
 
-          <!-- SLOT PROJEK 4 (WEB FRONTEND / UI/UX) -->
+          <!-- SLOT PROJEK 4 (WEB FRONTEND / UI/UX) - CONTOH TERISI, baris ~577 -->
           <div class="project-card" data-category="web"
-               data-overview="Jelaskan keunggulan desain antarmuka, optimasi kecepatan rendering, atau kemudahan navigasi yang Anda implementasikan."
-               data-security="Penerapan header keamanan HTTP; Zero tracking script berbahaya; Skor Core Web Vitals tinggi">
+               data-overview="FastLanding adalah landing page company profile yang mobile-first: hero ringan, animasi 60fps, gambar di-compress dan lazy-load. Total bundle di bawah 100KB, skor Lighthouse 95+. Navigasi dibuat 1-klik ke WhatsApp dan formulir, plus meta SEO dan Open Graph agar bagus saat dibagikan."
+               data-security="Header keamanan via vercel.json; Tanpa tracker pihak ketiga; Validasi form + honeypot anti-spam">
             <div class="project-banner">
               <div class="banner-pattern"></div>
               <div class="project-icon-large">
@@ -586,13 +586,13 @@
               <span class="project-type-badge web">Web Development</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">[Judul Projek 4 Anda]</h3>
+              <h3 class="project-title">FastLanding – Company Profile 60fps</h3>
               <p class="project-desc">
-                Tuliskan deskripsi website frontend / landing page Anda di sini. Jelaskan keindahan desain responsif dan kecepatan performanya.
+                Landing page super cepat, responsif, dan SEO-friendly untuk mengubah pengunjung jadi klien.
               </p>
               <div class="project-security-feature">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Standar: Kode bersih, SEO prima &amp; proteksi data klien</span>
+                <span>Standar: 95+ Lighthouse, SEO &amp; tanpa tracker</span>
               </div>
               <div class="project-tech-stack">
                 <span class="tech-chip">HTML/CSS</span>
@@ -607,10 +607,10 @@
             </div>
           </div>
 
-          <!-- SLOT PROJEK 5 (CYBER SECURITY &amp; NETWORK) -->
+          <!-- SLOT PROJEK 5 (CYBER SECURITY & NETWORK) - CONTOH TERISI, baris ~610 -->
           <div class="project-card" data-category="cyber"
-               data-overview="Jelaskan tujuan analisis jaringan atau pengujian paket data pada projek ini, protokol yang diperiksa, dan temuan keamanannya."
-               data-security="Deteksi anomali paket jaringan; Analisis port terbuka; Peringatan transmisi kredensial unencrypted">
+               data-overview="NetWatch adalah lab audit jaringan: capture 10 ribu paket dengan Wireshark, bedah protokol HTTP, DNS, dan FTP, lalu scan 1000 port dengan Nmap. Temuan utama: 1 login terkirim plaintext dan 3 port tak terpakai masih terbuka. Saya tutup dengan rekomendasi firewall, segmentasi, dan wajib HTTPS."
+               data-security="Deteksi kredensial plaintext HTTP/FTP; Daftar port &amp; servis berisiko; Rekomendasi firewall &amp; segmentasi">
             <div class="project-banner">
               <div class="banner-pattern"></div>
               <div class="project-icon-large">
@@ -619,13 +619,13 @@
               <span class="project-type-badge cyber">Cyber Security</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">[Judul Projek 5 Anda]</h3>
+              <h3 class="project-title">NetWatch – Audit Jaringan &amp; Forensik Paket</h3>
               <p class="project-desc">
-                Tuliskan deskripsi projek analisis jaringan / sistem keamanan Anda di sini. Contoh: Packet Sniffing Analysis, Wireshark Forensic, dll.
+                Analisis traffic jaringan dan pemindaian port untuk menemukan celah sebelum diserang.
               </p>
               <div class="project-security-feature">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Fokus: Analisis protokol jaringan &amp; deteksi ancaman</span>
+                <span>Fokus: Wireshark, Nmap &amp; deteksi anomali</span>
               </div>
               <div class="project-tech-stack">
                 <span class="tech-chip">Wireshark</span>
@@ -640,10 +640,10 @@
             </div>
           </div>
 
-          <!-- SLOT PROJEK 6 (BACKEND &amp; API) -->
+          <!-- SLOT PROJEK 6 (BACKEND & API) - CONTOH TERISI, baris ~643 -->
           <div class="project-card" data-category="web"
-               data-overview="Jelaskan arsitektur backend, sistem pengelolaan basis data, atau API gateway yang Anda bangun."
-               data-security="Rate-limiting pencegah brute-force; Enkripsi komunikasi API (HTTPS/TLS); Sanitasi payload JSON">
+               data-overview="ShieldAPI adalah REST API untuk web dan mobile: auth JWT + API key, CRUD produk/pesanan, dan cache Redis untuk endpoint ramai. Arsitektur memakai Express + validasi schema tiap request, logging terstruktur, dan Docker agar mudah deploy. Berhasil menahan 500 request/menit tanpa bocor data."
+               data-security="Rate-limit + lockout anti brute-force; Wajib HTTPS/TLS + validasi payload JSON; API key + RBAC per endpoint">
             <div class="project-banner">
               <div class="banner-pattern"></div>
               <div class="project-icon-large">
@@ -652,18 +652,18 @@
               <span class="project-type-badge web">Backend &amp; API</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">[Judul Projek 6 Anda]</h3>
+              <h3 class="project-title">ShieldAPI – REST API Gateway Aman</h3>
               <p class="project-desc">
-                Tuliskan deskripsi projek backend atau tool kustom Anda di sini. Contoh: RESTful API, Database Management, Automation Script.
+                Backend API cepat dengan pengamanan berlapis untuk kebutuhan web dan mobile.
               </p>
               <div class="project-security-feature">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Fitur Keamanan: Rate limiting &amp; API shielding</span>
+                <span>Fitur: Rate-limit, JWT &amp; sanitasi JSON</span>
               </div>
               <div class="project-tech-stack">
                 <span class="tech-chip">Node.js</span>
                 <span class="tech-chip">REST API</span>
-                <span class="tech-chip">SQL / NoSQL</span>
+                <span class="tech-chip">Redis</span>
                 <span class="tech-chip">Docker</span>
               </div>
               <div class="project-actions">
