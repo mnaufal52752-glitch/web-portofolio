@@ -7,7 +7,7 @@
 
 /* Import Fontshare (Gambetta + Satoshi) dan JetBrains Mono untuk terminal/code */
 @import url('https://api.fontshare.com/v2/css?f[]=gambetta@500,600,700&f[]=satoshi@400,500,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* --- Root Design Tokens (shadcn-style, light default) --- */
 :root {
@@ -680,24 +680,26 @@ button {
 }
 
 .hero-title {
+  font-family: 'DM Sans', var(--font-primary);
   font-size: 3.25rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.01em;
 }
 
 .hero-title .name-highlight {
   display: inline-block;
   background: linear-gradient(135deg, var(--white) 15%, var(--purple-glow) 50%, var(--tosca-light) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
   position: relative;
-  padding: 0.05rem 0.6rem;
+  padding: 0 0.15rem;
   margin: 0.2rem 0;
-  border: 1px dashed rgba(212, 212, 216, 0.55);
-  border-radius: 4px;
-  background-color: rgba(161, 161, 170, 0.08);
-  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.45), inset 0 0 15px rgba(161, 161, 170, 0.15);
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 /* --- Hero text animations ala ReactBits (vanilla, tanpa library) --- */
@@ -765,7 +767,7 @@ button {
 
 .hero-desc strong {
   color: var(--white);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .hero-cta {
@@ -807,10 +809,10 @@ button {
 }
 
 .terminal-card {
-  background: rgba(13, 8, 23, 0.9);
+  background: var(--card);
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), var(--shadow-purple);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
   backdrop-filter: blur(20px);
   position: relative;
@@ -819,16 +821,17 @@ button {
 
 .terminal-card:hover {
   border-color: var(--border-active);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), var(--shadow-tosca);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
 }
 
 .terminal-header {
-  background: rgba(26, 17, 46, 0.8);
+  background: var(--secondary);
   padding: 0.8rem 1.1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border);
 }
 
 .terminal-dots {
@@ -849,14 +852,15 @@ button {
 .terminal-title {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--gray-400);
+  color: var(--muted-foreground);
   font-weight: 500;
 }
 
 .terminal-badge {
   font-size: 0.75rem;
-  color: var(--tosca-light);
-  background: rgba(161, 161, 170, 0.15);
+  color: var(--foreground);
+  background: transparent;
+  border: 1px solid var(--border);
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
   font-family: var(--font-mono);
@@ -867,7 +871,7 @@ button {
   font-family: var(--font-mono);
   font-size: 0.88rem;
   line-height: 1.65;
-  color: var(--gray-200);
+  color: var(--foreground);
 }
 
 .terminal-line {
@@ -878,29 +882,29 @@ button {
 }
 
 .terminal-prompt {
-  color: var(--tosca-primary);
+  color: var(--muted-foreground);
   font-weight: 600;
   user-select: none;
 }
 
 .terminal-cmd {
-  color: var(--white);
+  color: var(--foreground);
   font-weight: 500;
 }
 
 .terminal-output {
-  color: var(--gray-400);
+  color: var(--muted-foreground);
   padding-left: 1.4rem;
   font-size: 0.83rem;
   margin-bottom: 0.6rem;
 }
 
 .terminal-output.highlight {
-  color: var(--purple-glow);
+  color: var(--foreground);
 }
 
 .terminal-output.status-secure {
-  color: var(--tosca-light);
+  color: var(--foreground);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -910,7 +914,7 @@ button {
   display: inline-block;
   width: 8px;
   height: 16px;
-  background-color: var(--tosca-primary);
+  background-color: var(--foreground);
   animation: blink 1s step-end infinite;
   vertical-align: middle;
   margin-left: 4px;
