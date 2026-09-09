@@ -1,40 +1,40 @@
 /* ==========================================================================
    NAUFAL ALTHAFA - PORTFOLIO STYLESHEET
    Spesialisasi: Web Developer & Cyber Security
-   Font: Clash Display (heading) + Satoshi (body) via Fontshare
-   Warna: Ungu, Putih, Aksen Tosca
+   Font: Gambetta serif (heading) + Satoshi (body) via Fontshare
+   Warna: Hitam elegan monokrom (light + dark)
    ========================================================================== */
 
-/* Import Fontshare (Clash Display + Satoshi) dan JetBrains Mono untuk terminal/code */
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&f[]=satoshi@400,500,700&display=swap');
+/* Import Fontshare (Gambetta + Satoshi) dan JetBrains Mono untuk terminal/code */
+@import url('https://api.fontshare.com/v2/css?f[]=gambetta@500,600,700&f[]=satoshi@400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* --- Root Design Tokens (shadcn-style, light default) --- */
 :root {
   /* Font Family (Fontshare) */
   --font-primary: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Clash Display', 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Gambetta', Georgia, 'Times New Roman', serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* shadcn semantic tokens — LIGHT */
-  --background: #f6f7f9;
-  --foreground: #0f172a;
+  /* shadcn semantic tokens — LIGHT monokrom */
+  --background: #fafafa;
+  --foreground: #09090b;
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #09090b;
   --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #6d28d9;
+  --popover-foreground: #09090b;
+  --primary: #09090b;
   --primary-foreground: #ffffff;
-  --secondary: #eef2f7;
-  --secondary-foreground: #0f172a;
-  --muted: #eef2f7;
-  --muted-foreground: #64748b;
-  --accent: #14b8a6;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #09090b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #18181b;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #7c3aed;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #09090b;
 
   /* Radius scale (shadcn: --radius sebagai basis) */
   --radius: 0.625rem;
@@ -43,48 +43,48 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
 
-  /* Brand lockup: Clash Display untuk heading */
+  /* Brand lockup: Gambetta serif untuk heading */
   --font-heading: var(--font-display);
 
-  /* Aksen brand (sama di light & dark, dipakai badge/ikon) */
-  --purple-glow: #7c3aed;
-  --purple-neon: #8b5cf6;
-  --purple-light: #7c3aed;
-  --purple-primary: #6d28d9;
-  --purple-deep: #5b21b6;
-  --purple-dark: #4c1d95;
-  --purple-ambient: rgba(109, 40, 217, 0.12);
-  --purple-subtle: rgba(109, 40, 217, 0.08);
+  /* Variabel brand lama dipetakan netral (monokrom) */
+  --purple-glow: #18181b;
+  --purple-neon: #3f3f46;
+  --purple-light: #52525b;
+  --purple-primary: #09090b;
+  --purple-deep: #09090b;
+  --purple-dark: #000000;
+  --purple-ambient: rgba(0, 0, 0, 0.06);
+  --purple-subtle: rgba(0, 0, 0, 0.04);
 
   /* Teks & permukaan LIGHT (dipetakan ke nama lama agar komponen ikut terang) */
-  --white: #0f172a;
-  --white-soft: #0f172a;
-  --gray-100: #f1f5f9;
-  --gray-200: #334155;
-  --gray-300: #475569;
-  --gray-400: #64748b;
-  --gray-500: #64748b;
-  --gray-800: #0f172a;
+  --white: #09090b;
+  --white-soft: #09090b;
+  --gray-100: #f4f4f5;
+  --gray-200: #27272a;
+  --gray-300: #3f3f46;
+  --gray-400: #71717a;
+  --gray-500: #71717a;
+  --gray-800: #09090b;
 
-  /* Aksen tosca */
-  --tosca-light: #0d9488;
-  --tosca-primary: #0d9488;
-  --tosca-cyan: #0891b2;
-  --tosca-deep: #0f766e;
-  --tosca-dark: #115e59;
-  --tosca-glow: rgba(20, 184, 166, 0.25);
-  --tosca-subtle: rgba(20, 184, 166, 0.1);
+  /* Aksen lama → zinc netral */
+  --tosca-light: #52525b;
+  --tosca-primary: #3f3f46;
+  --tosca-cyan: #52525b;
+  --tosca-deep: #27272a;
+  --tosca-dark: #18181b;
+  --tosca-glow: rgba(0, 0, 0, 0.1);
+  --tosca-subtle: rgba(0, 0, 0, 0.05);
 
   /* Background LIGHT */
   --bg-main: var(--background);
-  --bg-secondary: #eef2f7;
+  --bg-secondary: #f4f4f5;
   --bg-card: var(--card);
-  --bg-card-hover: #f8fafc;
+  --bg-card-hover: #fafafa;
   --bg-glass: rgba(255, 255, 255, 0.85);
 
   /* Borders & Shadows LIGHT */
-  --border-subtle: rgba(109, 40, 217, 0.25);
-  --border-active: rgba(13, 148, 136, 0.5);
+  --border-subtle: #d4d4d8;
+  --border-active: #a1a1aa;
   --border-card: var(--border);
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.06);
   --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.07), 0 12px 28px rgba(15, 23, 42, 0.1);
@@ -98,65 +98,65 @@
   --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* --- Dark theme: cyber violet/tosca (tema asli) --- */
+/* --- Dark theme: hitam elegan monokrom --- */
 html.dark {
-  --background: #140c28;
-  --foreground: #e2e8f0;
-  --card: rgba(36, 20, 68, 0.78);
-  --card-foreground: #f1f5f9;
-  --popover: #1a0f35;
-  --popover-foreground: #f1f5f9;
-  --primary: #a855f7;
-  --primary-foreground: #ffffff;
-  --secondary: #241444;
-  --secondary-foreground: #f1f5f9;
-  --muted: #241444;
-  --muted-foreground: #94a3b8;
-  --accent: #2dd4bf;
-  --accent-foreground: #05141b;
-  --border: rgba(255, 255, 255, 0.1);
-  --input: rgba(192, 132, 252, 0.3);
-  --ring: #c084fc;
+  --background: #0a0a0b;
+  --foreground: #fafafa;
+  --card: #131316;
+  --card-foreground: #fafafa;
+  --popover: #131316;
+  --popover-foreground: #fafafa;
+  --primary: #fafafa;
+  --primary-foreground: #09090b;
+  --secondary: #1c1c1f;
+  --secondary-foreground: #fafafa;
+  --muted: #1c1c1f;
+  --muted-foreground: #a1a1aa;
+  --accent: #e4e4e7;
+  --accent-foreground: #09090b;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #e4e4e7;
 
-  --purple-glow: #e9d5ff;
-  --purple-neon: #d8b4fe;
-  --purple-light: #c084fc;
-  --purple-primary: #a855f7;
-  --purple-deep: #9333ea;
-  --purple-dark: #6b21a8;
-  --purple-ambient: rgba(168, 85, 247, 0.28);
-  --purple-subtle: rgba(192, 132, 252, 0.18);
+  --purple-glow: #e4e4e7;
+  --purple-neon: #d4d4d8;
+  --purple-light: #d4d4d8;
+  --purple-primary: #fafafa;
+  --purple-deep: #e4e4e7;
+  --purple-dark: #a1a1aa;
+  --purple-ambient: rgba(255, 255, 255, 0.06);
+  --purple-subtle: rgba(255, 255, 255, 0.04);
 
   --white: #ffffff;
-  --white-soft: #f8fafc;
-  --gray-100: #f1f5f9;
-  --gray-200: #e2e8f0;
-  --gray-300: #cbd5e1;
-  --gray-400: #94a3b8;
-  --gray-500: #64748b;
-  --gray-800: #1e293b;
+  --white-soft: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-800: #27272a;
 
-  --tosca-light: #5eead4;
-  --tosca-primary: #2dd4bf;
-  --tosca-cyan: #06b6d4;
-  --tosca-deep: #14b8a6;
-  --tosca-dark: #0f766e;
-  --tosca-glow: rgba(45, 212, 191, 0.4);
-  --tosca-subtle: rgba(45, 212, 191, 0.15);
+  --tosca-light: #e4e4e7;
+  --tosca-primary: #d4d4d8;
+  --tosca-cyan: #a1a1aa;
+  --tosca-deep: #71717a;
+  --tosca-dark: #52525b;
+  --tosca-glow: rgba(255, 255, 255, 0.1);
+  --tosca-subtle: rgba(255, 255, 255, 0.05);
 
-  --bg-main: #140c28;
-  --bg-secondary: #1a0f35;
-  --bg-card: rgba(36, 20, 68, 0.78);
-  --bg-card-hover: rgba(50, 28, 92, 0.9);
-  --bg-glass: rgba(28, 16, 52, 0.88);
+  --bg-main: #0a0a0b;
+  --bg-secondary: #101013;
+  --bg-card: #131316;
+  --bg-card-hover: #1a1a1e;
+  --bg-glass: rgba(10, 10, 11, 0.85);
 
-  --border-subtle: rgba(192, 132, 252, 0.32);
-  --border-active: rgba(45, 212, 191, 0.55);
-  --border-card: rgba(255, 255, 255, 0.1);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-active: rgba(255, 255, 255, 0.25);
+  --border-card: rgba(255, 255, 255, 0.08);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 8px 26px rgba(0, 0, 0, 0.5);
-  --shadow-purple: 0 0 30px rgba(168, 85, 247, 0.55);
-  --shadow-tosca: 0 0 30px rgba(45, 212, 191, 0.45);
+  --shadow-purple: 0 0 30px rgba(161, 161, 170, 0.55);
+  --shadow-tosca: 0 0 30px rgba(161, 161, 170, 0.45);
 }
 
 /* --- Reset & Base Styles --- */
@@ -179,11 +179,11 @@ body {
   color: var(--foreground);
   background-color: var(--background);
   background-image:
-    linear-gradient(to right, rgba(109, 40, 217, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(109, 40, 217, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at 15% 15%, rgba(109, 40, 217, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(20, 184, 166, 0.08) 0%, transparent 45%),
-    linear-gradient(to bottom, #ffffff, #f6f7f9 60%, #eef2f7);
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 15% 15%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(0, 0, 0, 0.04) 0%, transparent 45%),
+    linear-gradient(to bottom, #ffffff, #fafafa 60%, #f4f4f5);
   background-size: 36px 36px, 36px 36px, auto, auto, auto;
   background-attachment: fixed;
   overflow-x: hidden;
@@ -192,17 +192,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark: kembalikan grid cyber gelap */
+/* Dark: grid monokrom di atas hitam pekat */
 html.dark body {
   color: var(--gray-200);
   background-color: var(--bg-main);
   background-image:
-    linear-gradient(to right, rgba(168, 85, 247, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(168, 85, 247, 0.08) 1px, transparent 1px),
-    radial-gradient(circle at 15% 15%, rgba(168, 85, 247, 0.32) 0%, transparent 50%),
-    radial-gradient(circle at 85% 30%, rgba(45, 212, 191, 0.22) 0%, transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(147, 51, 234, 0.26) 0%, transparent 60%),
-    linear-gradient(to bottom, #160d2b, #1d1038 50%, #120924);
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
+    linear-gradient(to bottom, #0a0a0b, #101013 50%, #060607);
   background-size: 36px 36px, 36px 36px, auto, auto, auto, auto;
 }
 
@@ -239,14 +239,14 @@ h1, h2, h3, h4, h5, h6 {
 html.dark h1, html.dark h2, html.dark h3,
 html.dark h4, html.dark h5, html.dark h6 {
   color: var(--white);
-  text-shadow: 1px 1px 0px rgba(192, 132, 252, 0.35),
-               -1px -1px 0px rgba(45, 212, 191, 0.22);
+  text-shadow: 1px 1px 0px rgba(212, 212, 216, 0.35),
+               -1px -1px 0px rgba(161, 161, 170, 0.22);
 }
 
 /* Terminal & konsol tetap gelap di kedua tema */
 .terminal-card {
   background: rgba(13, 8, 23, 0.95);
-  border-color: rgba(192, 132, 252, 0.32);
+  border-color: rgba(212, 212, 216, 0.32);
 }
 
 /* Tombol toggle tema ala shadcn */
@@ -338,18 +338,18 @@ button {
   border-radius: 4px; /* Sudut sedikit kotak */
   font-size: 0.85rem;
   font-weight: 600;
-  background: rgba(168, 85, 247, 0.2);
-  border: 1px solid rgba(192, 132, 252, 0.45);
+  background: rgba(161, 161, 170, 0.2);
+  border: 1px solid rgba(212, 212, 216, 0.45);
   color: var(--white);
   backdrop-filter: blur(10px);
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.4); /* Kotak di pinggiran */
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.4); /* Kotak di pinggiran */
 }
 
 .badge-pill.tosca {
-  background: rgba(45, 212, 191, 0.15);
-  border-color: rgba(45, 212, 191, 0.45);
+  background: rgba(161, 161, 170, 0.15);
+  border-color: rgba(161, 161, 170, 0.45);
   color: var(--tosca-light);
-  box-shadow: 2px 2px 0px rgba(45, 212, 191, 0.35);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.35);
 }
 
 .badge-dot {
@@ -413,7 +413,7 @@ button {
   color: var(--white);
   font-weight: 700;
   font-size: 1.1rem;
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.45), 0 0 15px rgba(168, 85, 247, 0.45);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.45), 0 0 15px rgba(161, 161, 170, 0.45);
 }
 
 .nav-brand .brand-sec {
@@ -423,8 +423,8 @@ button {
   font-weight: 600;
   padding: 0.15rem 0.45rem;
   border-radius: 4px;
-  background: rgba(45, 212, 191, 0.15);
-  border: 1px solid rgba(45, 212, 191, 0.3);
+  background: rgba(161, 161, 170, 0.15);
+  border: 1px solid rgba(161, 161, 170, 0.3);
   margin-left: 0.25rem;
 }
 
@@ -516,19 +516,19 @@ button {
   position: relative;
   overflow: hidden;
   white-space: nowrap;
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.4);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.4);
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-deep) 100%);
   color: var(--white);
-  box-shadow: 2px 2px 0px #6b21a8, 0 4px 20px rgba(168, 85, 247, 0.45);
+  box-shadow: 2px 2px 0px #3f3f46, 0 4px 20px rgba(161, 161, 170, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 2px 2px 0px #7e22ce, 0 8px 28px rgba(192, 132, 252, 0.65);
+  box-shadow: 2px 2px 0px #52525b, 0 8px 28px rgba(212, 212, 216, 0.65);
   background: linear-gradient(135deg, var(--purple-light) 0%, var(--purple-primary) 100%);
   color: var(--white);
 }
@@ -537,12 +537,12 @@ button {
   background: linear-gradient(135deg, var(--tosca-primary) 0%, var(--tosca-cyan) 100%);
   color: #05141b;
   font-weight: 700;
-  box-shadow: 2px 2px 0px var(--tosca-deep), 0 4px 20px rgba(45, 212, 191, 0.4);
+  box-shadow: 2px 2px 0px var(--tosca-deep), 0 4px 20px rgba(161, 161, 170, 0.4);
 }
 
 .btn-tosca:hover {
   transform: translateY(-2px);
-  box-shadow: 2px 2px 0px var(--tosca-dark), 0 8px 25px rgba(45, 212, 191, 0.55);
+  box-shadow: 2px 2px 0px var(--tosca-dark), 0 8px 25px rgba(161, 161, 170, 0.55);
   filter: brightness(1.08);
 }
 
@@ -551,11 +551,11 @@ button {
   border: 1px solid var(--border-subtle);
   color: var(--white);
   backdrop-filter: blur(10px);
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.25);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.25);
 }
 
 .btn-outline:hover {
-  background: rgba(168, 85, 247, 0.18);
+  background: rgba(161, 161, 170, 0.18);
   border-color: var(--purple-light);
   color: var(--white);
   transform: translateY(-2px);
@@ -600,7 +600,7 @@ button {
   padding: 0;
   box-shadow: none;
   text-align: center;
-  text-shadow: 0 0 12px rgba(45, 212, 191, 0.45);
+  text-shadow: 0 0 12px rgba(161, 161, 170, 0.45);
 }
 
 .section-tag::before {
@@ -694,10 +694,10 @@ button {
   position: relative;
   padding: 0.05rem 0.6rem;
   margin: 0.2rem 0;
-  border: 1px dashed rgba(192, 132, 252, 0.55);
+  border: 1px dashed rgba(212, 212, 216, 0.55);
   border-radius: 4px;
-  background-color: rgba(168, 85, 247, 0.08);
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.45), inset 0 0 15px rgba(168, 85, 247, 0.15);
+  background-color: rgba(161, 161, 170, 0.08);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.45), inset 0 0 15px rgba(161, 161, 170, 0.15);
 }
 
 /* --- Hero text animations ala ReactBits (vanilla, tanpa library) --- */
@@ -856,7 +856,7 @@ button {
 .terminal-badge {
   font-size: 0.75rem;
   color: var(--tosca-light);
-  background: rgba(45, 212, 191, 0.15);
+  background: rgba(161, 161, 170, 0.15);
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
   font-family: var(--font-mono);
@@ -942,7 +942,7 @@ button {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(45, 212, 191, 0.15);
+  background: rgba(161, 161, 170, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -996,7 +996,7 @@ button {
 .about-quote {
   padding: 1.2rem 1.5rem;
   border-left: 3px solid var(--purple-light);
-  background: rgba(147, 51, 234, 0.08);
+  background: rgba(113, 113, 122, 0.08);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   font-style: italic;
   color: var(--gray-200);
@@ -1099,15 +1099,15 @@ button {
 }
 
 .pillar-card.web .pillar-icon-box {
-  background: rgba(147, 51, 234, 0.2);
+  background: rgba(113, 113, 122, 0.2);
   color: var(--purple-glow);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  border: 1px solid rgba(161, 161, 170, 0.3);
 }
 
 .pillar-card.cyber .pillar-icon-box {
-  background: rgba(45, 212, 191, 0.15);
+  background: rgba(161, 161, 170, 0.15);
   color: var(--tosca-primary);
-  border: 1px solid rgba(45, 212, 191, 0.3);
+  border: 1px solid rgba(161, 161, 170, 0.3);
 }
 
 .pillar-title h3 {
@@ -1178,14 +1178,14 @@ button {
   font-size: 0.95rem;
   font-weight: 600;
   transition: var(--transition-smooth);
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.25);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.25);
 }
 
 .tab-btn.active, .tab-btn:hover {
-  background: rgba(168, 85, 247, 0.25);
+  background: rgba(161, 161, 170, 0.25);
   border-color: var(--purple-light);
   color: var(--white);
-  box-shadow: 2px 2px 0px var(--purple-light), 0 0 18px rgba(168, 85, 247, 0.45);
+  box-shadow: 2px 2px 0px var(--purple-light), 0 0 18px rgba(161, 161, 170, 0.45);
 }
 
 .skills-grid {
@@ -1311,14 +1311,14 @@ button {
   font-size: 0.9rem;
   font-weight: 600;
   transition: var(--transition-smooth);
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.25);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.25);
 }
 
 .filter-btn.active, .filter-btn:hover {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(45, 212, 191, 0.2));
+  background: linear-gradient(135deg, rgba(161, 161, 170, 0.35), rgba(161, 161, 170, 0.2));
   border-color: var(--border-active);
   color: var(--white);
-  box-shadow: 2px 2px 0px var(--tosca-primary), 0 0 18px rgba(168, 85, 247, 0.4);
+  box-shadow: 2px 2px 0px var(--tosca-primary), 0 0 18px rgba(161, 161, 170, 0.4);
 }
 
 .projects-grid {
@@ -1342,12 +1342,12 @@ button {
 .project-card:hover {
   transform: translateY(-6px);
   border-color: var(--border-subtle);
-  box-shadow: var(--shadow-md), 0 0 25px rgba(147, 51, 234, 0.2);
+  box-shadow: var(--shadow-md), 0 0 25px rgba(113, 113, 122, 0.2);
 }
 
 .project-banner {
   height: 200px;
-  background: linear-gradient(135deg, #180e2b 0%, #0d1a24 100%);
+  background: linear-gradient(135deg, #131316 0%, #1c1c1f 100%);
   position: relative;
   display: flex;
   align-items: center;
@@ -1393,19 +1393,19 @@ button {
   color: var(--white);
   z-index: 2;
   backdrop-filter: blur(8px);
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.35);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.35);
 }
 
 .project-type-badge.cyber {
-  border-color: rgba(45, 212, 191, 0.5);
+  border-color: rgba(161, 161, 170, 0.5);
   color: var(--tosca-light);
-  box-shadow: 2px 2px 0px rgba(45, 212, 191, 0.35);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.35);
 }
 
 .project-type-badge.web {
-  border-color: rgba(192, 132, 252, 0.5);
+  border-color: rgba(212, 212, 216, 0.5);
   color: var(--purple-glow);
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.35);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.35);
 }
 
 .project-content {
@@ -1431,7 +1431,7 @@ button {
 }
 
 .project-security-feature {
-  background: rgba(45, 212, 191, 0.08);
+  background: rgba(161, 161, 170, 0.08);
   border-left: 2px solid var(--tosca-primary);
   padding: 0.6rem 0.8rem;
   border-radius: 0 4px 4px 0;
@@ -1456,10 +1456,10 @@ button {
   font-weight: 600;
   padding: 0.24rem 0.65rem;
   border-radius: 4px; /* Sedikit kotak rapi */
-  background: rgba(168, 85, 247, 0.14);
-  border: 1px solid rgba(192, 132, 252, 0.3);
+  background: rgba(161, 161, 170, 0.14);
+  border: 1px solid rgba(212, 212, 216, 0.3);
   color: var(--white-soft);
-  box-shadow: 1px 1px 0px rgba(168, 85, 247, 0.3);
+  box-shadow: 1px 1px 0px rgba(161, 161, 170, 0.3);
 }
 
 .project-actions {
@@ -1559,7 +1559,7 @@ button {
   border-radius: 6px; /* Sedikit kotak */
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.25);
+  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.25);
   transition: var(--transition-smooth);
 }
 
@@ -1574,19 +1574,19 @@ button {
   width: 44px;
   height: 44px;
   border-radius: 4px; /* Sudut kotak */
-  background: rgba(168, 85, 247, 0.18);
+  background: rgba(161, 161, 170, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--purple-glow);
-  box-shadow: 1px 1px 0px rgba(168, 85, 247, 0.35);
+  box-shadow: 1px 1px 0px rgba(161, 161, 170, 0.35);
   flex-shrink: 0;
 }
 
 .contact-channel-card.tosca .channel-icon {
-  background: rgba(45, 212, 191, 0.18);
+  background: rgba(161, 161, 170, 0.18);
   color: var(--tosca-primary);
-  box-shadow: 1px 1px 0px rgba(45, 212, 191, 0.35);
+  box-shadow: 1px 1px 0px rgba(161, 161, 170, 0.35);
 }
 
 .channel-text h5 {
@@ -1607,7 +1607,7 @@ button {
   border: 1px solid var(--border-card);
   border-radius: 8px; /* Sedikit kotak */
   padding: 2.2rem;
-  box-shadow: 3px 3px 0px rgba(168, 85, 247, 0.3), var(--shadow-md);
+  box-shadow: 3px 3px 0px rgba(161, 161, 170, 0.3), var(--shadow-md);
   backdrop-filter: blur(15px);
 }
 
@@ -1628,7 +1628,7 @@ button {
   padding: 0.85rem 1.1rem;
   border-radius: 4px; /* Sedikit kotak */
   background: rgba(14, 8, 26, 0.85);
-  border: 1px solid rgba(192, 132, 252, 0.3);
+  border: 1px solid rgba(212, 212, 216, 0.3);
   color: var(--white);
   font-family: var(--font-primary);
   font-size: 0.95rem;
@@ -1640,7 +1640,7 @@ button {
 .form-control:focus {
   outline: none;
   border-color: var(--purple-light);
-  box-shadow: 2px 2px 0px var(--purple-light), 0 0 15px rgba(168, 85, 247, 0.4);
+  box-shadow: 2px 2px 0px var(--purple-light), 0 0 15px rgba(161, 161, 170, 0.4);
   background: rgba(22, 12, 40, 0.95);
 }
 
