@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initNavbar();
   initTerminalTyping();
   initProjectFilters();
@@ -12,6 +13,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initStatsCounter();
 });
+
+/* ==========================================================================
+   0. THEME TOGGLE (light ala shadcn / dark cyber) + persist localStorage
+   ========================================================================== */
+function initTheme() {
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+
+  function applyTheme(dark) {
+    root.classList.toggle('dark', dark);
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+    if (toggle) {
+      toggle.setAttribute('aria-label', dark ? 'Ganti ke tema terang' : 'Ganti ke tema gelap');
+    }
+  }
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      applyTheme(!root.classList.contains('dark'));
+    });
+  }
+
+  // Sinkron jika OS berganti tema dan user belum memilih manual
+  try {
+    if (!localStorage.getItem('theme')) {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      const sync = (e) => applyTheme(e.matches);
+      if (mq.addEventListener) mq.addEventListener('change', sync);
+    }
+  } catch (e) {}
+}
 
 /* ==========================================================================
    1. NAVBAR & SCROLL INTERACTIONS
