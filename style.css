@@ -703,25 +703,14 @@ button {
 
 .hero-title .name-highlight {
   display: inline-block;
-  background: linear-gradient(135deg, #09090b 0%, #09090b 55%, #52525b 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--foreground);
   position: relative;
   padding: 0 0.15rem;
   margin: 0.2rem 0;
   border: none;
+  background: none;
   background-color: transparent;
   box-shadow: none;
-}
-
-html.dark .hero-title .name-highlight {
-  background: linear-gradient(135deg, #ffffff 0%, #ffffff 55%, #d4d4d8 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
 }
 
 /* --- Hero text animations ala ReactBits (vanilla, tanpa library) --- */
@@ -746,19 +735,14 @@ html.dark .hero-title .name-highlight {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* ShinyText: kilau tipis menyapu nama (tidak membasahi warna dasar) */
+/* Kilau nama dimatikan: nama kini solid mengikuti tema (lebih terbaca) */
 .hero-title .name-highlight {
-  background-image:
-    linear-gradient(110deg, transparent 44%, rgba(0, 0, 0, 0.1) 50%, transparent 56%),
-    linear-gradient(135deg, #09090b 0%, #09090b 55%, #52525b 100%);
-  background-size: 250% 100%, auto;
-  animation: hero-sheen 5s ease-in-out 1.5s infinite;
+  background-image: none;
+  animation: none;
 }
 
 html.dark .hero-title .name-highlight {
-  background-image:
-    linear-gradient(110deg, transparent 44%, rgba(255, 255, 255, 0.35) 50%, transparent 56%),
-    linear-gradient(135deg, #ffffff 0%, #ffffff 55%, #d4d4d8 100%);
+  background-image: none;
 }
 
 @keyframes hero-sheen {
