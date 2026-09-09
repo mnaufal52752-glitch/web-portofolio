@@ -1,6 +1,6 @@
 # Web Portofolio — Naufal Althafa
 
-Portofolio statis: Web Developer & Cyber Security Specialist. Dibangun dengan HTML + CSS + JavaScript murni, tanpa build step. Siap deploy ke Vercel.
+Portofolio statis: Web Developer & Cyber Security Specialist. Dibangun dengan HTML + CSS + JavaScript murni, tanpa build step. Tema hitam elegan monokrom (light + dark + toggle). Font: Gambetta (heading), Satoshi (body), DM Sans (judul hero), JetBrains Mono (terminal). Siap deploy ke Vercel.
 
 **Repo:** https://github.com/mnaufal52752-glitch/web-portofolio
 
@@ -8,9 +8,10 @@ Portofolio statis: Web Developer & Cyber Security Specialist. Dibangun dengan HT
 
 ```
 index.html   # Struktur + konten (hero, tentang, skills, projek, workflow, kontak)
-style.css    # Styling DM Sans + tema cyber violet/tosca, responsif
-script.js    # Navbar, terminal typing, filter, modal, form + toast, counter
+style.css    # Token shadcn light/dark + komponen + animasi + responsif
+script.js    # Tema, entrance, animasi hero, navbar, terminal, filter, modal, form, counter
 vercel.json  # cleanUrls + security headers
+desain.md / architecture.md / agents.md / last activity.md  # Dokumentasi
 ```
 
 ## Jalankan Lokal
@@ -38,4 +39,4 @@ Setiap `git push` ke branch `main` akan auto-redeploy.
 
 ## Keamanan
 
-Header di `vercel.json`: `nosniff`, `DENY` frame, `Referrer-Policy` ketat, `Permissions-Policy` minimal, dan `Content-Security-Policy` yang mengizinkan Google Fonts + inline style/script yang dipakai halaman ini.
+Header di `vercel.json`: `nosniff`, `DENY` frame, `Referrer-Policy` ketat, `Permissions-Policy` minimal, dan `Content-Security-Policy` yang mengizinkan Google Fonts + Fontshare + inline style/script yang dipakai halaman ini.
