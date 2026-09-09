@@ -930,11 +930,11 @@ button {
   position: absolute;
   bottom: -20px;
   left: -20px;
-  background: rgba(22, 13, 38, 0.95);
-  border: 1px solid var(--border-active);
+  background: var(--card);
+  border: 1px solid var(--border);
   padding: 0.75rem 1.1rem;
   border-radius: var(--radius-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), var(--shadow-tosca);
+  box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -946,22 +946,23 @@ button {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(161, 161, 170, 0.15);
+  background: var(--secondary);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--tosca-primary);
+  color: var(--foreground);
 }
 
 .shield-text h5 {
   font-size: 0.85rem;
-  color: var(--white);
+  color: var(--foreground);
   margin-bottom: 0.1rem;
 }
 
 .shield-text p {
   font-size: 0.75rem;
-  color: var(--tosca-light);
+  color: var(--muted-foreground);
   font-family: var(--font-mono);
 }
 
@@ -1308,21 +1309,21 @@ button {
 
 .filter-btn {
   padding: 0.6rem 1.4rem;
-  border-radius: 4px; /* Sudut sedikit kotak */
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-card);
-  color: var(--gray-300);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
   font-size: 0.9rem;
   font-weight: 600;
   transition: var(--transition-smooth);
-  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.25);
+  box-shadow: var(--shadow-sm);
 }
 
 .filter-btn.active, .filter-btn:hover {
-  background: linear-gradient(135deg, rgba(161, 161, 170, 0.35), rgba(161, 161, 170, 0.2));
-  border-color: var(--border-active);
-  color: var(--white);
-  box-shadow: 2px 2px 0px var(--tosca-primary), 0 0 18px rgba(161, 161, 170, 0.4);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-sm);
 }
 
 .projects-grid {
@@ -1341,12 +1342,13 @@ button {
   transition: var(--transition-smooth);
   backdrop-filter: blur(12px);
   position: relative;
+  box-shadow: var(--shadow-sm);
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  border-color: var(--border-subtle);
-  box-shadow: var(--shadow-md), 0 0 25px rgba(113, 113, 122, 0.2);
+  border-color: var(--border-active);
+  box-shadow: var(--shadow-md);
 }
 
 .project-banner {
@@ -1360,27 +1362,44 @@ button {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+/* Glow lembut di belakang logo */
+.project-banner::before {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
 .banner-pattern {
   position: absolute;
   inset: 0;
-  opacity: 0.25;
-  background-image: radial-gradient(var(--purple-light) 1px, transparent 1px);
-  background-size: 16px 16px;
+  opacity: 0.12;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 18px 18px;
 }
 
 .project-icon-large {
-  width: 70px;
-  height: 70px;
-  border-radius: var(--radius-md);
-  background: rgba(22, 14, 38, 0.85);
-  border: 1px solid var(--border-subtle);
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius-xl);
+  background: #1c1c1f;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  color: var(--tosca-primary);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  color: #fafafa;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.45);
   z-index: 1;
+  transition: var(--transition-smooth);
+}
+
+.project-card:hover .project-icon-large {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .project-type-badge {
@@ -1391,25 +1410,25 @@ button {
   font-family: var(--font-mono);
   font-weight: 600;
   padding: 0.25rem 0.65rem;
-  border-radius: 4px; /* Sudut sedikit kotak */
-  background: rgba(10, 6, 18, 0.9);
-  border: 1px solid var(--border-subtle);
-  color: var(--white);
+  border-radius: 4px;
+  background: rgba(10, 10, 12, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #e4e4e7;
   z-index: 2;
   backdrop-filter: blur(8px);
-  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.35);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .project-type-badge.cyber {
-  border-color: rgba(161, 161, 170, 0.5);
-  color: var(--tosca-light);
-  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.35);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #fafafa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .project-type-badge.web {
-  border-color: rgba(212, 212, 216, 0.5);
-  color: var(--purple-glow);
-  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.35);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #e4e4e7;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .project-content {
@@ -1657,7 +1676,7 @@ textarea.form-control {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(5, 3, 10, 0.85);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 2000;
@@ -1676,14 +1695,14 @@ textarea.form-control {
 }
 
 .modal-card {
-  background: #0f091c;
-  border: 1px solid var(--border-subtle);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   width: 100%;
   max-width: 720px;
   max-height: 88vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), var(--shadow-purple);
+  box-shadow: var(--shadow-md);
   position: relative;
   transform: scale(0.95) translateY(20px);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1701,11 +1720,12 @@ textarea.form-control {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--secondary);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gray-300);
+  color: var(--muted-foreground);
   transition: var(--transition-smooth);
 }
 
