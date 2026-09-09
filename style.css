@@ -35,6 +35,7 @@
   --border: #e4e4e7;
   --input: #e4e4e7;
   --ring: #09090b;
+  color-scheme: light;
 
   /* Radius scale (shadcn: --radius sebagai basis) */
   --radius: 0.625rem;
@@ -117,6 +118,7 @@ html.dark {
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.12);
   --ring: #e4e4e7;
+  color-scheme: dark;
 
   --purple-glow: #e4e4e7;
   --purple-neon: #d4d4d8;
@@ -770,6 +772,12 @@ button {
   .hero-desc { filter: none; opacity: 1; transform: none; transition: none; }
   .floating-shield { animation: none; }
   .cursor-blink { animation: none; }
+  body.loaded .nav-brand,
+  body.loaded .nav-menu,
+  body.loaded .nav-actions,
+  body.loaded .hero-content .badge-pill { animation: none; }
+  .terminal-card.boot .terminal-header,
+  .terminal-card.boot .terminal-body > * { opacity: 1; transform: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
 
@@ -817,6 +825,41 @@ button {
   font-weight: 600;
   margin-top: 0.35rem;
 }
+
+/* --- Entrance saat buka web: navbar + badge (dipicu body.loaded) --- */
+@keyframes nav-drop {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body.loaded .nav-brand { animation: nav-drop 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+body.loaded .nav-menu { animation: nav-drop 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+body.loaded .nav-actions { animation: nav-drop 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+body.loaded .hero-content .badge-pill { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
+
+/* --- Terminal boot sequence: baris muncul berurutan --- */
+.terminal-card .terminal-header,
+.terminal-card .terminal-body > * {
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.terminal-card.boot .terminal-header,
+.terminal-card.boot .terminal-body > * {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.terminal-card.booted .terminal-header { transition-delay: 0ms; }
+.terminal-card.booted .terminal-body > *:nth-child(1) { transition-delay: 150ms; }
+.terminal-card.booted .terminal-body > *:nth-child(2) { transition-delay: 300ms; }
+.terminal-card.booted .terminal-body > *:nth-child(3) { transition-delay: 450ms; }
+.terminal-card.booted .terminal-body > *:nth-child(4) { transition-delay: 600ms; }
+.terminal-card.booted .terminal-body > *:nth-child(5) { transition-delay: 750ms; }
 
 /* Hero Terminal Mockup (Cyber Tech Console) */
 .hero-visual {
@@ -1595,37 +1638,37 @@ button {
   align-items: center;
   gap: 1.1rem;
   padding: 1rem 1.2rem;
-  border-radius: 6px; /* Sedikit kotak */
+  border-radius: var(--radius-md);
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  box-shadow: 2px 2px 0px rgba(161, 161, 170, 0.25);
-  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-channel-card:hover {
-  border-color: var(--purple-light);
+  border-color: var(--border-active);
   transform: translateX(4px);
   background: var(--bg-card-hover);
-  box-shadow: 3px 3px 0px var(--purple-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .channel-icon {
   width: 44px;
   height: 44px;
-  border-radius: 4px; /* Sudut kotak */
-  background: rgba(161, 161, 170, 0.18);
+  border-radius: var(--radius-md);
+  background: var(--secondary);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--purple-glow);
-  box-shadow: 1px 1px 0px rgba(161, 161, 170, 0.35);
+  color: var(--foreground);
   flex-shrink: 0;
 }
 
 .contact-channel-card.tosca .channel-icon {
-  background: rgba(161, 161, 170, 0.18);
-  color: var(--tosca-primary);
-  box-shadow: 1px 1px 0px rgba(161, 161, 170, 0.35);
+  background: var(--secondary);
+  color: var(--foreground);
+  border: 1px solid var(--border);
 }
 
 .channel-text h5 {
@@ -1644,9 +1687,9 @@ button {
 .contact-form-card {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
-  border-radius: 8px; /* Sedikit kotak */
+  border-radius: var(--radius-lg);
   padding: 2.2rem;
-  box-shadow: 3px 3px 0px rgba(161, 161, 170, 0.3), var(--shadow-md);
+  box-shadow: var(--shadow-md);
   backdrop-filter: blur(15px);
 }
 
@@ -1665,22 +1708,27 @@ button {
 .form-control {
   width: 100%;
   padding: 0.85rem 1.1rem;
-  border-radius: 4px; /* Sedikit kotak */
-  background: rgba(14, 8, 26, 0.85);
-  border: 1px solid rgba(212, 212, 216, 0.3);
-  color: var(--white);
+  border-radius: var(--radius-md);
+  background: var(--background);
+  border: 1px solid var(--input);
+  color: var(--foreground);
   font-family: var(--font-primary);
   font-size: 0.95rem;
   font-weight: 500;
-  transition: var(--transition-smooth);
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  box-shadow: none;
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+  opacity: 1;
 }
 
 .form-control:focus {
   outline: none;
-  border-color: var(--purple-light);
-  box-shadow: 2px 2px 0px var(--purple-light), 0 0 15px rgba(161, 161, 170, 0.4);
-  background: rgba(22, 12, 40, 0.95);
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 22%, transparent);
+  background: var(--card);
 }
 
 textarea.form-control {

@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initEntrance();
   initHeroAnimations();
   initNavbar();
   initTerminalTyping();
@@ -47,7 +48,25 @@ function initTheme() {
 }
 
 /* ==========================================================================
-   0b. HERO TEXT ANIMATIONS ala ReactBits (SplitText + BlurText, vanilla)
+   0b. ENTRANCE: navbar/badge + terminal boot sequence saat buka web
+   ========================================================================== */
+function initEntrance() {
+  document.body.classList.add('loaded');
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const card = document.querySelector('.terminal-card');
+  if (!card || reduceMotion) return;
+
+  // Sembunyikan baris terminal dulu, lalu munculkan berurutan via CSS
+  card.classList.add('boot');
+  void card.offsetWidth; // paksa reflow agar transisi berjalan
+  setTimeout(() => {
+    card.classList.add('booted');
+  }, 200);
+}
+
+/* ==========================================================================
+   0c. HERO TEXT ANIMATIONS ala ReactBits (SplitText + BlurText, vanilla)
    ========================================================================== */
 function initHeroAnimations() {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
