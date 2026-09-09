@@ -854,7 +854,8 @@ body.loaded .hero-content .badge-pill { animation: fade-up 0.6s cubic-bezier(0.1
   transform: translateY(6px);
 }
 
-.terminal-card.booted .terminal-header { transition-delay: 0ms; }
+.terminal-card.booted .terminal-header { transition-delay: 0ms; opacity: 1; transform: none; }
+.terminal-card.booted .terminal-body > * { opacity: 1; transform: none; }
 .terminal-card.booted .terminal-body > *:nth-child(1) { transition-delay: 150ms; }
 .terminal-card.booted .terminal-body > *:nth-child(2) { transition-delay: 300ms; }
 .terminal-card.booted .terminal-body > *:nth-child(3) { transition-delay: 450ms; }

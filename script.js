@@ -61,6 +61,7 @@ function initEntrance() {
   card.classList.add('boot');
   void card.offsetWidth; // paksa reflow agar transisi berjalan
   setTimeout(() => {
+    card.classList.remove('boot');
     card.classList.add('booted');
   }, 200);
 }
