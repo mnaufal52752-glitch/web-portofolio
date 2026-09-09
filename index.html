@@ -474,10 +474,10 @@
              ========================================================================== -->
         <div class="projects-grid">
 
-          <!-- SLOT PROJEK 1 (WEB DEVELOPMENT / FULLSTACK) -->
+          <!-- SLOT PROJEK 1 (WEB DEVELOPMENT / FULLSTACK) - CONTOH TERISI -->
           <div class="project-card" data-category="web fullstack"
-               data-overview="Tuliskan penjelasan arsitektur lengkap projek Anda di sini: apa tujuan projek dibuat, fitur unggulannya, tantangan teknis yang berhasil diatasi, serta bagaimana integrasi frontend dan backend berjalan."
-               data-security="Validasi input data yang ketat; Proteksi CSRF &amp; XSS; Manajemen sesi terenkripsi dengan JWT/Cookie">
+               data-overview="SecureShop adalah aplikasi e-commerce untuk UMKM: katalog produk, keranjang, checkout, dan dashboard admin. Frontend memakai React + Tailwind dengan lazy loading dan pagination. Backend memakai Node.js + Express (REST API) dan PostgreSQL dengan query terparameterisasi. Tantangan terbesar adalah mencegah order ganda saat checkout bersamaan, diatasi dengan database transaction dan idempotency key."
+               data-security="Validasi &amp; sanitasi input di klien dan server anti-XSS; Proteksi CSRF token + cookie SameSite; Auth JWT httpOnly + hashing Bcrypt + rate-limit login">
             <div class="project-banner">
               <div class="banner-pattern"></div>
               <div class="project-icon-large">
@@ -486,19 +486,20 @@
               <span class="project-type-badge web">Web Development</span>
             </div>
             <div class="project-content">
-              <h3 class="project-title">[Judul Projek 1 Anda]</h3>
+              <h3 class="project-title">SecureShop – Toko Online Fullstack</h3>
               <p class="project-desc">
-                Tuliskan deskripsi ringkas projek Anda di sini. Jelaskan fungsi utama aplikasi web atau website yang Anda bangun untuk calon klien / rekruter.
+                Aplikasi e-commerce responsif: katalog, keranjang, checkout, dan dashboard admin untuk kelola produk dan pesanan.
               </p>
               <div class="project-security-feature">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Proteksi Keamanan: Validasi input &amp; enkripsi data</span>
+                <span>Proteksi: JWT httpOnly, CSRF token, rate-limit login</span>
               </div>
               <div class="project-tech-stack">
-                <span class="tech-chip">HTML5</span>
-                <span class="tech-chip">CSS3</span>
-                <span class="tech-chip">JavaScript</span>
                 <span class="tech-chip">React</span>
+                <span class="tech-chip">Node.js</span>
+                <span class="tech-chip">Express</span>
+                <span class="tech-chip">PostgreSQL</span>
+                <span class="tech-chip">Tailwind</span>
               </div>
               <div class="project-actions">
                 <button class="btn btn-outline btn-sm btn-detail-trigger" data-project-id="1">Lihat Detail</button>
