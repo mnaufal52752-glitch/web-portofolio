@@ -116,14 +116,16 @@ function initNavbar() {
   const navMenu = document.getElementById('navMenu');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  // Sticky navbar shadow and background on scroll
+  // Sticky navbar + scroll spy, di-throttle via rAF agar smooth di HP
+  let scrollTicking = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    updateActiveNavLink();
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+      updateActiveNavLink();
+      scrollTicking = false;
+    });
   }, { passive: true });
 
   // Mobile menu toggle
@@ -178,6 +180,12 @@ function initNavbar() {
 function initTerminalTyping() {
   const cmdElem = document.getElementById('terminalCmd');
   if (!cmdElem) return;
+
+  // reduced-motion: tampilkan perintah statis, tanpa animasi mengetik
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    cmdElem.textContent = 'naufal.init({ dev: "Fullstack", sec: "Offensive & Defensive" });';
+    return;
+  }
 
   const commands = [
     'naufal.init({ dev: "Fullstack", sec: "Offensive & Defensive" });',
@@ -363,7 +371,7 @@ function initProjectFilters() {
           card.style.opacity = '0';
           card.style.transform = 'translateY(15px)';
           setTimeout(() => {
-            card.style.transition = 'all 0.4s ease';
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
           }, 30);
@@ -397,7 +405,7 @@ function initSkillsFilter() {
           card.style.opacity = '0';
           card.style.transform = 'scale(0.96)';
           setTimeout(() => {
-            card.style.transition = 'all 0.35s ease';
+            card.style.transition = 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
             card.style.opacity = '1';
             card.style.transform = 'scale(1)';
           }, 30);
@@ -469,7 +477,7 @@ function showToast(message, type = 'success') {
   toastContainer.appendChild(toast);
 
   setTimeout(() => {
-    toast.style.transition = 'all 0.4s ease';
+    toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
     toast.style.opacity = '0';
     toast.style.transform = 'translateX(60px)';
     setTimeout(() => {
