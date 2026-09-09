@@ -229,7 +229,7 @@ html.dark body {
 h1, h2, h3, h4, h5, h6 {
   color: var(--foreground);
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.015em;
   text-shadow: none;
@@ -397,7 +397,7 @@ button {
   align-items: center;
   gap: 0.65rem;
   font-size: 1.35rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--white);
   letter-spacing: -0.03em;
 }
@@ -411,7 +411,7 @@ button {
   align-items: center;
   justify-content: center;
   color: var(--white);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.1rem;
   box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.45), 0 0 15px rgba(168, 85, 247, 0.45);
 }
@@ -590,7 +590,7 @@ button {
   display: inline-block;
   font-family: var(--font-primary);
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--tosca-primary);
   text-transform: uppercase;
   letter-spacing: 0.16em;
@@ -611,7 +611,7 @@ button {
 
 .section-title {
   font-size: 2.35rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: -0.015em;
   position: relative;
@@ -681,7 +681,7 @@ button {
 
 .hero-title {
   font-size: 3.25rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.025em;
 }
@@ -698,6 +698,62 @@ button {
   border-radius: 4px;
   background-color: rgba(168, 85, 247, 0.08);
   box-shadow: 2px 2px 0px rgba(168, 85, 247, 0.45), inset 0 0 15px rgba(168, 85, 247, 0.15);
+}
+
+/* --- Hero text animations ala ReactBits (vanilla, tanpa library) --- */
+/* SplitText: tiap huruf naik stagger saat halaman dibuka */
+.hero-title .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.hero-title .c {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 35ms + 150ms);
+}
+
+@keyframes hero-rise {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ShinyText: kilau menyapu nama */
+.hero-title .name-highlight {
+  background-image:
+    linear-gradient(110deg, transparent 42%, rgba(255, 255, 255, 0.75) 50%, transparent 58%),
+    linear-gradient(135deg, var(--white) 15%, var(--purple-glow) 50%, var(--tosca-light) 100%);
+  background-size: 250% 100%, auto;
+  animation: hero-sheen 4s ease-in-out 1.5s infinite;
+}
+
+@keyframes hero-sheen {
+  0% { background-position: 120% 0, 0 0; }
+  55%, 100% { background-position: -120% 0, 0 0; }
+}
+
+/* BlurText: deskripsi dari blur menjadi tajam */
+.hero-desc {
+  filter: blur(8px);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: filter 0.9s ease, opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-desc.in {
+  filter: blur(0);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title .c { animation: none; transform: none; opacity: 1; }
+  .hero-title .name-highlight { animation: none; }
+  .hero-desc { filter: none; opacity: 1; transform: none; transition: none; }
 }
 
 .hero-desc {
@@ -729,7 +785,7 @@ button {
 
 .stat-item h4 {
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--white);
   line-height: 1;
 }
@@ -1185,7 +1241,7 @@ button {
 .skill-name {
   font-size: 1.05rem;
   color: var(--white);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .skill-level {
@@ -1361,7 +1417,7 @@ button {
 
 .project-title {
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--white);
   margin-bottom: 0.6rem;
 }
@@ -1442,7 +1498,7 @@ button {
 .sdl-number {
   font-family: var(--font-mono);
   font-size: 2.4rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1;
   background: linear-gradient(135deg, var(--purple-light), var(--tosca-primary));
   -webkit-background-clip: text;
@@ -1479,7 +1535,7 @@ button {
 
 .contact-title {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--white);
 }
 
@@ -1666,7 +1722,7 @@ textarea.form-control {
 .modal-title {
   font-size: 1.75rem;
   color: var(--white);
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .modal-body-section {
@@ -1747,7 +1803,7 @@ textarea.form-control {
 
 .footer-brand h3 {
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--white);
   margin-bottom: 0.8rem;
 }
@@ -1763,7 +1819,7 @@ textarea.form-control {
   font-size: 1rem;
   color: var(--white);
   margin-bottom: 1.2rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .footer-links {

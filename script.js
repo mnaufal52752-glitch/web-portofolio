@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initHeroAnimations();
   initNavbar();
   initTerminalTyping();
   initProjectFilters();
@@ -43,6 +44,67 @@ function initTheme() {
       if (mq.addEventListener) mq.addEventListener('change', sync);
     }
   } catch (e) {}
+}
+
+/* ==========================================================================
+   0b. HERO TEXT ANIMATIONS ala ReactBits (SplitText + BlurText, vanilla)
+   ========================================================================== */
+function initHeroAnimations() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // SplitText: pecah judul hero jadi huruf per kata, animasi stagger via CSS
+  const title = document.querySelector('.hero-title');
+  if (title && !reduceMotion) {
+    const fullText = title.textContent.replace(/\s+/g, ' ').trim();
+    let i = 0;
+
+    const splitNode = (node) => {
+      if (node.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(' '));
+            return;
+          }
+          const w = document.createElement('span');
+          w.className = 'w';
+          w.setAttribute('aria-hidden', 'true');
+          [...part].forEach((ch) => {
+            const c = document.createElement('span');
+            c.className = 'c';
+            c.style.setProperty('--i', i++);
+            c.textContent = ch;
+            w.appendChild(c);
+          });
+          frag.appendChild(w);
+        });
+        node.replaceWith(frag);
+      } else if (node.nodeType === 1) {
+        [...node.childNodes].forEach(splitNode);
+      }
+    };
+
+    [...title.childNodes].forEach(splitNode);
+    title.setAttribute('aria-label', fullText);
+  }
+
+  // BlurText: deskripsi hero dari blur menjadi tajam
+  const desc = document.querySelector('.hero-desc');
+  if (desc && !reduceMotion) {
+    const show = () => desc.classList.add('in');
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) { show(); obs.disconnect(); }
+        });
+      }, { threshold: 0.2 });
+      obs.observe(desc);
+    }
+    setTimeout(show, 1200); // pengaman kalau observer tidak jalan
+  } else if (desc) {
+    desc.classList.add('in');
+  }
 }
 
 /* ==========================================================================
