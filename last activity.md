@@ -1,16 +1,19 @@
 # Aktivitas Terakhir
 
-> Diperbarui: 9 September 2026. Repo: https://github.com/mnaufal52752-glitch/web-portofolio — Live: https://web-portofolio-black-beta.vercel.app/
+> Diperbarui: 10 September 2026. Repo: https://github.com/mnaufal52752-glitch/web-portofolio — Live: https://web-portofolio-black-beta.vercel.app/
 
 ## Status Sekarang
 
 - Branch `main` sinkron dengan `origin/main`. Working tree bersih.
-- Commit terakhir: `8af2bf5` — "Nama hero solid ikut tema (hapus gradient-teks rapuh)".
+- Commit terakhir: `72e3ca1` — "Judul tab menjadi Portofolio Naufal".
 
 ## Riwayat Perubahan (15 commit terakhir)
 
 | Commit | Isi |
 |---|---|
+| `72e3ca1` | Judul tab menjadi Portofolio Naufal |
+| `4a3030a` | Selaraskan README dengan desain monokrom + dokumentasi |
+| `ac7bce6` | Tambah dokumentasi: last activity, agents, desain, architecture |
 | `8af2bf5` | Nama hero solid ikut tema (perbaiki teks hilang di light mode) |
 | `2579e51` | Kilau nama light mode disesuaikan |
 | `148aefb` | Nama hero monokrom kontras |
@@ -23,9 +26,6 @@
 | `7abc94a` | Hitam elegan Fase 1: Gambetta + token monokrom |
 | `0445c55` | Heading diringankan + animasi hero ala ReactBits |
 | `cf98873` | Token shadcn light/dark + Clash Display + Satoshi + toggle |
-| `211a884` | Hapus duplikat section-tag |
-| `57f90f2` | Fix background rusak + duplikat CSS + floating-shield |
-| `bc9ff84` | Isi contoh projek 2–6 |
 
 Commit awal (`6a4daa1`) ada di history remote sebelum daftar di atas.
 

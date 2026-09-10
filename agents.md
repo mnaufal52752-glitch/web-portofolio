@@ -17,6 +17,9 @@
 11. **Bug teks terminal hilang** — class `boot` tidak dilepas (`aaf524b`). ✅
 12. **Responsif HP/tablet** — drawer, wrap terminal, modal, toast, anti auto-zoom iPhone. ✅
 13. **Nama hero solid** — gradient-teks rapuh dihapus (`8af2bf5`). ✅
+14. **Dokumentasi repo** — `last activity.md`, `agents.md`, `desain.md`, `architecture.md` (`ac7bce6`). ✅
+15. **README selaras desain** — monokrom, font, daftar docs, CSP Fontshare (`4a3030a`). ✅
+16. **Judul tab** — menjadi `Portofolio Naufal` (`72e3ca1`). ✅
 
 ## Tertunda / Tidak Jadi
 
