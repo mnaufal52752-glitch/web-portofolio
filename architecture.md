@@ -33,3 +33,16 @@ Header: `nosniff`, `DENY` frame, `Referrer-Policy` ketat, `Permissions-Policy` m
 - Vanilla HTML/CSS/JS agar ringan dan mudah diedit langsung (isi projek cukup ubah `index.html`).
 - Referensi React/shadcn diadaptasi ke vanilla (tanpa dependensi) supaya deploy statis tetap zero-build.
 - Terminal, banner, dan footer dipertahankan bernuansa gelap di kedua tema sebagai identitas.
+
+## Web Toko (repo `mnaufal52752-glitch/web-toko`, di-ignore di sini)
+
+```
+client/  # React 18 + Vite + Tailwind v4 (deploy → Vercel, Root client)
+server/  # Express 4 + Supabase JS + JWT cookie (deploy → Railway, Root server)
+supabase/schema.sql  # categories/products/orders/order_items/admins/settings + RLS
+```
+
+- **API:** `GET /api/health`, `/api/auth` (login/me/logout, rate-limit), `/api/products` (publik aktif / admin all / CRUD + soft-delete), `/api/orders` (publik buat+lihat, admin daftar+status; total dihitung server, stok kurang sekali saat verifikasi), `/api/uploads` (bukti bayar), `/api/admin` (superadmin: akun + settings).
+- **Auth:** JWT `admin_token` httpOnly; produksi `SameSite=None; Secure` (lintas Vercel→Railway) + `trust proxy` 1; lokal `Lax`. Tanpa register publik.
+- **Frontend tahan-banting:** `api.products/allProducts/orders/admins` dinormalisasi ke array + guard `Array.isArray` di `Home`/`Catalog` (pelajaran blank-page `.slice`).
+- **Deploy:** Railway Root `server` (`npm start`, `PORT` dinamis, `.npmrc omit=dev`), Vercel Root `client` (`VITE_API_URL` URL Railway, `vercel.json` rewrite SPA). `FRONTEND_URL` = URL Vercel (CORS + cookie).

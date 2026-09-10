@@ -40,3 +40,11 @@ Bobot heading diturunkan 1 tingkat dari desain awal (tidak ada lagi `800`).
 ## Responsif
 
 - 1024px: hero/about/kontak 1 kolom, projek 2 kolom. 768px: drawer menu, terminal wrap, modal/form ramping. 480px: tombol aksi vertikal, toast full-width, input 16px (anti auto-zoom iPhone).
+
+## Web Toko (admin + grafik)
+
+> Tailwind v4 + token monokrom yang sama (`--background/foreground/card/muted/border/primary`, light + `.dark`), tanpa library grafik.
+
+- **Produk & Stok:** form berlabel 2 kolom (nama, kategori, harga, stok, gambar, kadaluarsa, deskripsi + checkbox katalog saat edit), pesan sukses/gagal inline, tabel responsif (produk, kategori, harga, badge stok Habis/Menipis/Aman, status, aksi).
+- **Dashboard:** 4 kartu (Omzet kotor, perlu verifikasi, total pesanan, produk aktif) + `SalesChart` SVG murni: batang omzet 14 hari (status terverifikasi saja), label ringkas (`jt`/`rb`), tooltip via `<title>`, ikut tema lewat `var(--primary/muted-fg/border)`.
+- **Keuntungan:** yang tampil omzet kotor + catatan jujur (tanpa HPP); laba bersih butuh kolom modal per produk (belum ada).

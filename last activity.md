@@ -1,17 +1,18 @@
 # Aktivitas Terakhir
 
-> Diperbarui: 10 September 2026. Repo: https://github.com/mnaufal52752-glitch/web-portofolio — Live: https://web-portofolio-black-beta.vercel.app/
+> Diperbarui: 10 September 2026. Repo: https://github.com/mnaufal52752-glitch/web-portofolio — Live: https://web-portofolio-black-beta.vercel.app/ — Web Toko: https://github.com/mnaufal52752-glitch/web-toko — Live: https://web-toko-beige.vercel.app/ (backend Railway).
 
 ## Status Sekarang
 
-- Branch `main` sinkron dengan `origin/main`. Working tree bersih.
-- Commit terakhir: `72e3ca1` — "Judul tab menjadi Portofolio Naufal".
+- Portofolio `main` di `fa3fcc5` (Live Demo SecureShop → web-toko). Web-toko `main` di `f412564` (admin rapi + grafik). Keduanya sinkron `origin/main`, working tree bersih.
+- Backend Railway `/api/health` → `{"ok":true}`; cookie produksi `SameSite=None; Secure`; login `superadmin` masuk dashboard.
 
-## Riwayat Perubahan (15 commit terakhir)
+## Riwayat Perubahan (portofolio, 15 commit terakhir)
 
 | Commit | Isi |
 |---|---|
-| `72e3ca1` | Judul tab menjadi Portofolio Naufal |
+| `fa3fcc5` | Live Demo SecureShop ke web-toko Vercel |
+| `d8c7496` | Lanjut docs ke judul tab |
 | `4a3030a` | Selaraskan README dengan desain monokrom + dokumentasi |
 | `ac7bce6` | Tambah dokumentasi: last activity, agents, desain, architecture |
 | `8af2bf5` | Nama hero solid ikut tema (perbaiki teks hilang di light mode) |
@@ -28,6 +29,17 @@
 | `cf98873` | Token shadcn light/dark + Clash Display + Satoshi + toggle |
 
 Commit awal (`6a4daa1`) ada di history remote sebelum daftar di atas.
+
+## Web Toko (repo `mnaufal52752-glitch/web-toko`, 7 commit)
+
+| Commit | Isi |
+|---|---|
+| `f412564` | Admin rapi + grafik omzet 14 hari |
+| `6dde3eb` | `.npmrc` peredam warning npm |
+| `70a98e1` | `trust proxy` untuk Railway |
+| `4ec4365` | Cookie `None+Secure` + anti blank-page array |
+| `e01c624` | `client/vercel.json` rewrite SPA |
+| `b9069b7` | Scaffold React + Express + Supabase |
 
 ## Cara Verifikasi
 
